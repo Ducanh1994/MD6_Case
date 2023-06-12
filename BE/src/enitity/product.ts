@@ -1,7 +1,8 @@
 import {Column, Entity,ManyToOne,OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 import {Category} from './category';
 import {OrderDetail} from "./orderDetail";
-
+import {Image} from "./image";
+import {Store} from "./store";
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn()
@@ -16,6 +17,10 @@ export class Product {
     image: string;
     @ManyToOne(() => Category,(category) => category.products)
     category: Category;
+    @OneToMany( () => Image,(image) => image.product)
+    images: Image[];
     @OneToMany( () => OrderDetail,(orderDetail) => orderDetail.product)
     orderDetails: OrderDetail[];
+    @ManyToOne(() => Store,(store) => store.products)
+    store: Store;
 }
