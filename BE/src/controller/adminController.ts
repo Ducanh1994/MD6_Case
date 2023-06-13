@@ -8,6 +8,7 @@ class AdminController {
         this.adminService = adminService
     }
 
+    // Await Update For Creating New Account
     createAccount = async (req: Request, res: Response) => {
         let userCheck = await adminService.checkUser(req.body);
         if (userCheck.length !== 0) {
