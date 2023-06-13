@@ -20,11 +20,10 @@ class AdminService {
                 }
             ]
         })
-        return findName
+        return findName;
     }
 
     createUser = async (user) => {
-        user.password = await bcrypt.hash(user.password, 10);
         return this.userRepository.save(user);
     }
 }
