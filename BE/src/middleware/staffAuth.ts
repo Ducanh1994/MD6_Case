@@ -1,4 +1,4 @@
-export const userAuth = (req, res, next) => {
+export const staffAuth = (req, res, next) => {
     if (req.decode.role === 'staff') {
         next();
     } else {
