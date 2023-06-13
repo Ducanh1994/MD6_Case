@@ -9,6 +9,7 @@ class AdminService {
         this.userRepository = AppDataSource.getRepository(User);
     }
 
+    // Conditional To Create New Account
     checkUser = async (user) => {
         let findName = await this.userRepository.find({
             where: [
@@ -23,6 +24,7 @@ class AdminService {
         return findName;
     }
 
+    // Admin Create New Account
     createUser = async (user) => {
         return this.userRepository.save(user);
     }
